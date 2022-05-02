@@ -110,7 +110,9 @@ class DialogBase:
         }
 
     def _run(self):
-        res = self._fun(*self.args)
+        args = self.args
+        self.args = []
+        res = self._fun(*args)
         if (isinstance(res, tuple)):
             text, next = res
         else:
